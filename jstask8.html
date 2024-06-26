@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #ffcccc, #cc99ff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px; /* Add padding for smaller screens */
+            box-sizing: border-box;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h1 {
+            text-align: center;
+            color: blue;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="number"],
+        input[type="tel"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 5px; /* Adjust margin for better spacing */
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+            display: inline-block;
+        }
+
+        .register-btn {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .register-btn:hover {
+            background-color: darkred;
+        }
+
+        a {
+            color: blue;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                max-width: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Registration form</h1>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" required>
+                <span class="error" id="first-name-error">POOR</span>
+            </div>
+            <div class="form-group">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" required>
+                <span class="error" id="last-name-error">POOR</span>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+                <span class="error" id="email-error">POOR</span>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required>
+                <span class="error" id="password-error">POOR</span>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Re-enter Password</label>
+                <input type="password" id="confirm-password" required>
+                <span class="error" id="confirm-password-error">POOR OR MISMATCH</span>
+            </div>
+            <div class="form-group">
+                <label>Gender</label>
+                <input type="radio" name="gender" value="male" required> Male
+                <input type="radio" name="gender" value="female" required> Female
+            </div>
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" required>
+                <span class="error" id="age-error">POOR</span>
+            </div>
+            <div class="form-group">
+                <label for="phone-number">Phone Number</label>
+                <input type="tel" id="phone-number" required>
+                <span class="error" id="phone-number-error">POOR</span>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" rows="3" required></textarea>
+                <span class="error" id="address-error">POOR</span>
+            </div>
+            <div class="form-group">
+                <label for="state">State</label>
+                <input type="text" id="state" required>
+                <span class="error" id="state-error">POOR</span>
+            </div>
+            <div class="form-group">
+                <label for="country">Country</label>
+                <select id="country" required>
+                    <option value="">Choose your country</option>
+                    <option value="country1">Country 1</option>
+                    <option value="country2">Country 2</option>
+                    <!-- Add more countries as needed -->
+                </select>
+                <span class="error" id="country-error">POOR</span>
+            </div>
+            <div class="form-group">
+                <label>Languages known</label>
+                <input type="checkbox" name="languages" value="english"> English
+                <input type="checkbox" name="languages" value="kannada"> Kannada
+                <input type="checkbox" name="languages" value="hindi"> Hindi
+                <input type="checkbox" name="languages" value="telugu"> Telugu
+            </div>
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" required> Hereby I declare all the given details are true
+                </label>
+            </div>
+            <div class="form-group">
+                <a href="login.html">Log in to existing website</a>
+            </div>
+            <button type="submit" class="register-btn">REGISTER</button>
+        </form>
+    </div>
+    <script src="jstask6.js"></script>
+</body>
+</html>

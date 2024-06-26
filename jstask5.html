@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title></title>
+<style>
+  table th {
+    background-color: #f0f0f0;
+    text-align: left;
+  }
+  input[type="text"], input[type="email"], input[type="url"], textarea {
+    width: 100%;
+    padding: 8px;
+    border: 2px solid red; /* Input box border color set to red */
+    box-sizing: border-box;
+    font-size: 14px;
+    background-color:white; /* Input box background color set to black */
+    color: black; /* Text color set to white */
+  }
+</style>
+</head>
+<body>
+
+<h2></h2>
+
+<form id="myForm">
+  <table>
+    <tr>
+      <td><label for="name">Name:</label></td>
+      <td><input type="text" id="name" name="name" required></td>
+    </tr>
+    <tr>
+      <td><label for="email">Email:</label></td>
+      <td><input type="email" id="email" name="email" required></td>
+    </tr>
+    <tr>
+      <td><label for="url">Website:</label></td>
+      <td><input type="url" id="url" name="url" required></td>
+    </tr>
+    <tr>
+      <td><label for="message">Message:</label></td>
+      <td><textarea id="message" name="message" required></textarea></td>
+    </tr>
+    <tr>
+      <td colspan="2"><button type="submit">Submit</button></td>
+    </tr>
+  </table>
+</form>
+<script src="jstask5.js"></script>
+
+</body>
+</html>

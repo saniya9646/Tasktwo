@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Train Animation</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: sans-serif;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        img {
+            position: relative;
+        }
+
+        button {
+            margin: 0 5px;
+            padding: 5px 15px;
+            font-size: 16px;
+            
+        }
+    </style>
+    <script type="text/javascript">
+        var img = null;
+        var interval = null;
+
+        function init() {
+            img = document.getElementById('myimg');
+            img.style.position = 'relative';
+            img.style.left = '0px';
+        }
+
+        function moveRight() {
+            img.style.left = parseInt(img.style.left) + 5 + 'px';
+            if (parseInt(img.style.left) > window.innerWidth) {
+                img.style.left = '0px'; 
+            }
+        }
+
+        function startAnimation() {
+            if (!interval) {
+                interval = setInterval(moveRight, 50);
+            }
+        }
+
+        function stopAnimation() {
+            clearInterval(interval);
+            interval = null;
+        }
+
+        window.onload = init;
+    </script>
+</head>
+<body>
+    <div class="container">
+        <img id="myimg" src="trainimg.png" alt="Train Image">
+        <h2 style="color: blue; font-family: serif;">Click the following buttons to handle animation</h2>
+        <button onclick="startAnimation()">Start</button>
+        <button onclick="stopAnimation()">Stop</button>
+    </div>
+</body>
+</html>
