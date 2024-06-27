@@ -7,183 +7,205 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom, #ffcccc, #cc99ff);
+            background: linear-gradient(to bottom,  lightyellow, #fbc2eb);
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            padding: 20px; /* Add padding for smaller screens */
-            box-sizing: border-box;
         }
 
         .container {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
+            padding: 10px;
+            text-align: left;
             width: 100%;
-            max-width: 500px;
+            max-width: 400px;
         }
 
         h1 {
             text-align: center;
             color: blue;
-            font-size: 24px;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
+            font-size: 20px;
         }
 
-        .form-group {
-            margin-bottom: 15px;
+        .input-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
         }
 
-        label {
-            display: block;
-            margin-bottom: 5px;
+        .input-group label {
+            width: 120px;
+            margin-right: 10px;
+            font-size: 12px;
         }
 
-        input[type="text"],
-        input[type="email"],
-        input[type="password"],
-        input[type="number"],
-        input[type="tel"],
-        textarea,
-        select {
-            width: 100%;
-            padding: 8px;
+        .input-group input,
+        .input-group select,
+        .input-group textarea {
+            flex: 1;
+            padding: 6px;
             border: 1px solid #ccc;
-            border-radius: 5px;
-            margin-bottom: 5px; /* Adjust margin for better spacing */
+            border-radius: 4px;
+            font-size: 12px;
         }
 
-        textarea {
-            resize: none;
+        .input-group span {
+            margin-left: 10px;
+            color: red;
+            font-weight: bold;
+            font-size: 10px;
         }
 
-        input[type="radio"],
-        input[type="checkbox"] {
+        .gender-group,
+        .languages-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .gender-group input,
+        .languages-group input {
             margin-right: 5px;
         }
 
-        .error {
-            color: red;
+        .languages-group label {
+            margin-right: 10px;
             font-size: 12px;
-            display: inline-block;
         }
 
-        .register-btn {
-            background-color: red;
-            color: white;
-            border: none;
-            padding: 10px;
-            width: 100%;
-            border-radius: 5px;
-            cursor: pointer;
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
         }
 
-        .register-btn:hover {
-            background-color: darkred;
+        .checkbox-group input {
+            margin-right: 10px;
         }
 
-        a {
+        .actions {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .actions a {
             color: blue;
             text-decoration: none;
-            font-size: 14px;
+            font-size: 12px;
         }
 
-        a:hover {
+        .actions a:hover {
             text-decoration: underline;
         }
 
-        @media (min-width: 768px) {
-            .container {
-                max-width: 400px;
-            }
+        .register-button-container {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .register-button {
+            background-color: red;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .register-button:hover {
+            background-color: darkred;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Registration form</h1>
-        <form id="registrationForm">
-            <div class="form-group">
-                <label for="first-name">First Name</label>
-                <input type="text" id="first-name" required>
-                <span class="error" id="first-name-error">POOR</span>
-            </div>
-            <div class="form-group">
-                <label for="last-name">Last Name</label>
-                <input type="text" id="last-name" required>
-                <span class="error" id="last-name-error">POOR</span>
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" required>
-                <span class="error" id="email-error">POOR</span>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" required>
-                <span class="error" id="password-error">POOR</span>
-            </div>
-            <div class="form-group">
-                <label for="confirm-password">Re-enter Password</label>
-                <input type="password" id="confirm-password" required>
-                <span class="error" id="confirm-password-error">POOR OR MISMATCH</span>
-            </div>
-            <div class="form-group">
-                <label>Gender</label>
-                <input type="radio" name="gender" value="male" required> Male
-                <input type="radio" name="gender" value="female" required> Female
-            </div>
-            <div class="form-group">
-                <label for="age">Age</label>
-                <input type="number" id="age" required>
-                <span class="error" id="age-error">POOR</span>
-            </div>
-            <div class="form-group">
-                <label for="phone-number">Phone Number</label>
-                <input type="tel" id="phone-number" required>
-                <span class="error" id="phone-number-error">POOR</span>
-            </div>
-            <div class="form-group">
-                <label for="address">Address</label>
-                <textarea id="address" rows="3" required></textarea>
-                <span class="error" id="address-error">POOR</span>
-            </div>
-            <div class="form-group">
-                <label for="state">State</label>
-                <input type="text" id="state" required>
-                <span class="error" id="state-error">POOR</span>
-            </div>
-            <div class="form-group">
-                <label for="country">Country</label>
-                <select id="country" required>
-                    <option value="">Choose your country</option>
-                    <option value="country1">Country 1</option>
-                    <option value="country2">Country 2</option>
-                    <!-- Add more countries as needed -->
-                </select>
-                <span class="error" id="country-error">POOR</span>
-            </div>
-            <div class="form-group">
-                <label>Languages known</label>
-                <input type="checkbox" name="languages" value="english"> English
-                <input type="checkbox" name="languages" value="kannada"> Kannada
-                <input type="checkbox" name="languages" value="hindi"> Hindi
-                <input type="checkbox" name="languages" value="telugu"> Telugu
-            </div>
-            <div class="form-group">
-                <label>
-                    <input type="checkbox" required> Hereby I declare all the given details are true
-                </label>
-            </div>
-            <div class="form-group">
-                <a href="login.html">Log in to existing website</a>
-            </div>
-            <button type="submit" class="register-btn">REGISTER</button>
-        </form>
+        <h1 style="font-family: serif;">Registration Form</h1>
+        <div class="input-group">
+            <label for="first-name">First Name:</label>
+            <input type="text" id="first-name">
+            <span>POOR</span>
+        </div>
+        <div class="input-group">
+            <label for="last-name">Last Name:</label>
+            <input type="text" id="last-name">
+            <span>POOR</span>
+        </div>
+        <div class="input-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email">
+            <span>POOR</span>
+        </div>
+        <div class="input-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password">
+            <span>POOR</span>
+        </div>
+        <div class="input-group">
+            <label for="reenter-password">Re-enter Password:</label>
+            <input type="password" id="reenter-password">
+            <span>POOR OR MISMATCH</span>
+        </div>
+        <div class="gender-group">
+            <label>Gender:</label>
+            <input type="radio" id="male" name="gender">
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender">
+            <label for="female">Female</label>
+        </div>
+        <div class="input-group">
+            <label for="age">Age:</label>
+            <input type="number" id="age">
+            <span>POOR</span>
+        </div>
+        <div class="input-group">
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone">
+            <span>POOR</span>
+        </div>
+        <div class="input-group">
+            <label for="address">Address:</label>
+            <textarea id="address" rows="3"></textarea>
+            <span>POOR</span>
+        </div>
+        <div class="input-group">
+            <label for="state">State:</label>
+            <input type="text" id="state">
+            <span>POOR</span>
+        </div>
+        <div class="input-group">
+            <label for="country">Country:</label>
+            <select id="country">
+                <option>Choose your country</option>
+                <!-- Add options as needed -->
+            </select>
+        </div>
+        <div class="languages-group">
+            <label>Languages known:</label>
+            <input type="checkbox" id="english">
+            <label for="english">English</label>
+            <input type="checkbox" id="kannada">
+            <label for="kannada">Kannada</label>
+            <input type="checkbox" id="hindi">
+            <label for="hindi">Hindi</label>
+            <input type="checkbox" id="telugu">
+            <label for="telugu">Telugu</label>
+        </div>
+        <div class="checkbox-group">
+            <input type="checkbox" id="declare">
+            <label for="declare">Hereby I declare all the given details are true</label>
+        </div>
+        <div class="actions">
+            <p style="margin: 0;">Log into <a href="https://ethnus.com" title="Log into Ethnus Website">Ethnus</a>Website</p>
+        </div>
+        <div class="register-button-container">
+            <button class="register-button">REGISTER</button>
+        </div>
     </div>
-    <script src="jstask6.js"></script>
+    <script src="jstask8.js"></script>
 </body>
 </html>

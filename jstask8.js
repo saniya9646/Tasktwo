@@ -1,48 +1,32 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('registrationForm');
-    const inputs = form.querySelectorAll('input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="tel"], textarea, select');
-    const errors = {
-        'first-name': 'first-name-error',
-        'last-name': 'last-name-error',
-        'email': 'email-error',
-        'password': 'password-error',
-        'confirm-password': 'confirm-password-error',
-        'age': 'age-error',
-        'phone-number': 'phone-number-error',
-        'address': 'address-error',
-        'state': 'state-error',
-        'country': 'country-error'
-    };
 
-    inputs.forEach(input => {
-        input.addEventListener('input', () => {
-            const errorElement = document.getElementById(errors[input.id]);
-            if (input.checkValidity()) {
-                errorElement.style.display = 'none';
+    document.getElementById('registrationForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        let isValid = true;
+        const fields = [
+            { id: 'first-name', name: 'First Name' },
+            { id: 'last-name', name: 'Last Name' },
+            { id: 'email', name: 'Email', pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ },
+            { id: 'password', name: 'Password' },
+            { id: 'reenter-password', name: 'Re-enter Password', match: 'password' },
+            { id: 'age', name: 'Age', type: 'number' },
+            { id: 'phone', name: 'Phone Number' },
+            { id: 'address', name: 'Address' },
+            { id: 'state', name: 'State' }
+        ];
+        fields.forEach(field => {
+            const input = document.getElementById(field.id);
+            const error = document.querySelector(`#${field.id} + span`);
+            
+            if (!input.value.trim() || (field.pattern && !field.pattern.test(input.value)) || (field.type === 'number' && isNaN(input.value)) || (field.match && input.value !== document.getElementById(field.match).value)) {
+                error.style.display = 'inline';
+                isValid = false;
             } else {
-                errorElement.style.display = 'inline-block';
+                error.style.display = 'none';
             }
         });
-    });
-
-    form.addEventListener('submit', (event) => {
-        let valid = true;
-        inputs.forEach(input => {
-            const errorElement = document.getElementById(errors[input.id]);
-            if (!input.checkValidity()) {
-                errorElement.style.display = 'inline-block';
-                valid = false;
-            }
-        });
-
-        if (form['password'].value !== form['confirm-password'].value) {
-            const errorElement = document.getElementById(errors['confirm-password']);
-            errorElement.style.display = 'inline-block';
-            valid = false;
-        }
-
-        if (!valid) {
-            event.preventDefault();
+        
+        if (isValid) {
+            alert('Registration successful!');
+            
         }
     });
-});

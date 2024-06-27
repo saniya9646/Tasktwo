@@ -1,53 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title></title>
-<style>
-  table th {
-    background-color: #f0f0f0;
-    text-align: left;
-  }
-  input[type="text"], input[type="email"], input[type="url"], textarea {
-    width: 100%;
-    padding: 8px;
-    border: 2px solid red; /* Input box border color set to red */
-    box-sizing: border-box;
-    font-size: 14px;
-    background-color:white; /* Input box background color set to black */
-    color: black; /* Text color set to white */
-  }
-</style>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>javascript Task5</title>
+  <style>
+      .outer-div{
+          margin-left: 20em;
+          margin-top: 5rem;
+      }
+      .box{
+          display: flex;
+          align-items: center;
+      }
+      .box span,input,textarea{
+          margin-left: 10px;
+      }
+      textarea{
+          width: 20%;
+          height: 80px;
+      }
+      .box label{
+          width: 26%;
+          text-align: right;
+          font-weight: bold;
+      }
+      .error{
+          color: rgb(216, 20, 20);
+          display: none;
+      }
+      .input-error{
+         border: 2px solid rgb(216, 20, 20);
+      }
+      .btn{
+          margin-left: 27%;
+          align-items: center;
+          justify-content: center;
+          padding: 5px;
+          border: 1px solid gray;
+          border-radius: 4px;
+          background-color: rgb(233, 232, 232);
+      }
+  </style>
 </head>
 <body>
+  <div class="outer-div">
+    <form id="myForm" onsubmit="return validateForm()">
+      <div class="box">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <span class="error" id="nameError">This feild is required</span>
+      </div>
+      <br>
+      <div class="box">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+        <span class="error" id="emailError">
+          A valid email address is required
+        </span>
+      </div>
+      <br>
+      <div class="box">
+        <label for="web">Website:</label>
+        <input type="url" id="web" name="web">
+        <span class="error" id="webError">A valid url is required</span>
+      </div>
+      <br>
+      <div class="box">
+        <label for="mgs">Message:</label>
+        <textarea name="mgs" id="mgs"></textarea>
+        <span class="error" id="mgsError">This feild is required</span>
+      </div>
+      <br>
+      <input class="btn" type="submit" value="Submit">
+    </form>
+  </div>
 
-<h2></h2>
+  <script src="jstask5.js">
+      
+  </script>
 
-<form id="myForm">
-  <table>
-    <tr>
-      <td><label for="name">Name:</label></td>
-      <td><input type="text" id="name" name="name" required></td>
-    </tr>
-    <tr>
-      <td><label for="email">Email:</label></td>
-      <td><input type="email" id="email" name="email" required></td>
-    </tr>
-    <tr>
-      <td><label for="url">Website:</label></td>
-      <td><input type="url" id="url" name="url" required></td>
-    </tr>
-    <tr>
-      <td><label for="message">Message:</label></td>
-      <td><textarea id="message" name="message" required></textarea></td>
-    </tr>
-    <tr>
-      <td colspan="2"><button type="submit">Submit</button></td>
-    </tr>
-  </table>
-</form>
-<script src="jstask5.js"></script>
 
-</body>
-</html>
+</body></html>

@@ -5,7 +5,7 @@ function reverseFunction(num) {
 }
 
 function displayReversedNumber() {
-    let num = 67;
+    let num = 687;
     let reversedNum = reverseFunction(num);
     document.getElementById('reversedNumber').innerText = `Reversed Number: ${reversedNum}`;
 }
